@@ -1,0 +1,37 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jws:workspace xmlns:jws="http://xmlns.oracle.com/ide/project">
+   <hash n="adrs-workspace-properties">
+      <value n="adrs-instance-binding" v="DefaultServer"/>
+   </hash>
+   <value n="appTemplateId" v="#genericApplicationTemplate"/>
+   <hash n="component-versions">
+      <value n="oracle.adf.share.dt.migration.jps.JaznCredStoreMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.adfdt.controller.adfc.source.migration.SavePointDataSourceForWLSMigrator" v="11.1.1.1.0"/>
+      <value n="oracle.adfdtinternal.model.ide.security.wizard.AdfSecurityMigrator" v="11.1.1.1.0.13"/>
+      <value n="oracle.ide.model.Project" v="11.1.1.1.0"/>
+      <value n="oracle.jdevimpl.deploy.ear.OarMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.jdevimpl.deploy.mar.MarMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.jdevimpl.xml.oc4j.jps.JpsConfigMigratorHelper" v="11.1.1.1.0.1"/>
+      <value n="oracle.jdevimpl.xml.wl.WeblogicMigratorHelper" v="11.1.1.1.0"/>
+      <value n="oracle.mds.internal.dt.ide.migrator.MDSConfigMigratorHelper" v="11.1.1.0.5313"/>
+   </hash>
+   <list n="listOfChildren">
+      <hash><url n="URL" path="Concurrency/Concurrency.jpr"/></hash>
+      <hash><url n="URL" path="DataStructure/DataStructure.jpr"/></hash>
+      <hash><url n="URL" path="DateExp/DateExp.jpr"/></hash>
+      <hash><url n="URL" path="JavaProj1/JavaProj1.jpr"/></hash>
+      <hash><url n="URL" path="JavaProj3/JavaProj3.jpr"/></hash>
+      <hash><url n="URL" path="JavaProj4/JavaProj4.jpr"/></hash>
+      <hash><url n="URL" path="JavaProj5/JavaProj5.jpr"/></hash>
+      <hash><url n="URL" path="JavaProj6/JavaProj6.jpr"/></hash>
+      <hash><url n="URL" path="MusicExp/MusicExp.jpr"/></hash>
+      <hash><url n="URL" path="NewThreadProj1/NewThreadProj1.jpr"/></hash>
+      <hash><url n="URL" path="Proj4_ConsoleTesting/Proj4_ConsoleTesting.jpr"/></hash>
+      <hash><url n="URL" path="SomeTestUtilProj/SomeTestUtilProj.jpr"/></hash>
+      <hash><url n="URL" path="speechApi/speechApi.jpr"/></hash>
+      <hash><url n="URL" path="speechApi2/speechApi2.jpr"/></hash>
+      <hash><url n="URL" path="SyncTestThread/SyncTestThread.jpr"/></hash>
+      <hash><url n="URL" path="ThreadTestsSkipy/ThreadTestsSkipy.jpr"/></hash>
+      <hash><url n="URL" path="ZipExp/ZipExp.jpr"/></hash>
+   </list>
+</jws:workspace>
