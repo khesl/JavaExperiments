@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test_project" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SkillBox/course_1/RoadCamera" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SkillBox/course_1/RoadController" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/SkillBox" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="dropbox-core-sdk-3.0.10-sources" level="project" />
+  </component>
+</module>
