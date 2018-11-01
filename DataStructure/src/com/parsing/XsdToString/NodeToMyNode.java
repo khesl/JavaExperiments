@@ -19,12 +19,12 @@ public class NodeToMyNode {
 
     private static String text = "<ns2:CheckRequest xmlns:ns2=\"http://openaccount.com03.pep.nitec.kz\" xmlns:ns3=\"http://3005.reports.egp.gbdul.tamur.kz\" xmlns:ns4=\"http://www.w3.org/2000/09/xmldsig#\">\n" + 
     "    <ns2:Requestor>\n" + 
-    "        <ns2:BIN>171040000144</ns2:BIN>\n" + 
-    "        <ns2:RequestNumber>10109001090797</ns2:RequestNumber>\n" + 
+    "        <ns2:BIN>14</ns2:BIN>\n" + 
+    "        <ns2:RequestNumber>17</ns2:RequestNumber>\n" + 
     "    </ns2:Requestor>\n" + 
     "    <ns2:RequestDetails>\n" + 
-    "        <ns2:BankName>KZKOKKZKX</ns2:BankName>\n" + 
-    "        <ns2:BranchName>KZKOKKZKX_AST1</ns2:BranchName>\n" + 
+    "        <ns2:BankName>KZX</ns2:BankName>\n" + 
+    "        <ns2:BranchName>KZT1</ns2:BranchName>\n" + 
     "        <ns2:MoneyType>KZT</ns2:MoneyType>\n" + 
     "    </ns2:RequestDetails>\n" + 
     "    <ns2:Gbdulfullinfo>\n" + 
@@ -39,53 +39,32 @@ public class NodeToMyNode {
     "			<DisplayKz>Шағын кәсіпкерлік субъектісі</DisplayKz>\n" + 
     "		</PrivateEnterpriseType>\n" + 
     "        <ForeignInvest>false</ForeignInvest>\n" + 
-    "        <founders>\n" + 
-    "            <founder>\n" + 
-    "                <IINBIN>940531451013</IINBIN>\n" + 
-    "                <legal>false</legal>\n" + 
-    "                <Person>\n" + 
-    "                    <FIO>\n" + 
-    "                        <SurName>БУРКИТБАЕВА</SurName>\n" + 
-    "                        <Name>КОРЛАН</Name>\n" + 
-    "                        <MiddleName>СЕРИКОВНА</MiddleName>\n" + 
-    "                    </FIO>\n" + 
-    "                    <Document>\n" + 
-    "                        <DocumentType>002</DocumentType>\n" + 
-    "                        <DocumentNumber>030960768</DocumentNumber>\n" + 
-    "                        <IssuerId>001</IssuerId>\n" + 
-    "                    </Document>\n" + 
-    "                    <IIN>940531451013</IIN>\n" + 
-    "                </Person>\n" + 
-    "                <BirthDate>2017-10-02+06:00</BirthDate>\n" + 
-    "                <percentage>100.0</percentage>\n" + 
-    "            </founder>\n" + 
-    "        </founders>\n" + 
     "        <registeringDepartment>1930-01</registeringDepartment>\n" + 
     "        <OKED>37000</OKED>\n" + 
     "        <leaderPerson>\n" + 
     "            <FIO>\n" + 
-    "                <SurName>ЖОЛДАБЕКОВ</SurName>\n" + 
-    "                <Name>РУСТЕМ</Name>\n" + 
-    "                <MiddleName>КАНАТОВИЧ</MiddleName>\n" + 
+    "                <SurName>k</SurName>\n" + 
+    "                <Name>РМ</Name>\n" + 
+    "                <MiddleName>КЧ</MiddleName>\n" + 
     "            </FIO>\n" + 
     "            <Document>\n" + 
     "                <DocumentType>002</DocumentType>\n" + 
-    "                <DocumentNumber>035491618</DocumentNumber>\n" + 
+    "                <DocumentNumber>08</DocumentNumber>\n" + 
     "                <IssueDate>2000-10-01T00:00:00.000+06:00</IssueDate>\n" + 
     "                <IssuerId>1</IssuerId>\n" + 
     "            </Document>\n" + 
-    "            <IIN>950110350170</IIN>\n" + 
+    "            <IIN>90</IIN>\n" + 
     "        </leaderPerson>\n" + 
     "        <orgFullNameRu>Товарищество с ограниченной ответственностью \"TestTest2\"</orgFullNameRu>\n" + 
     "        <orgFullNameKz>\"TestTest2\" жауапкершілігі шектеулі серіктестігі</orgFullNameKz>\n" + 
     "        <orgFullNameEn>\"TestTest2\" жауапкершілігі шектеулі серіктестігі</orgFullNameEn>\n" + 
     "        <jurAddress>\n" + 
-    "            <BuildingNumber>46</BuildingNumber>\n" + 
-    "            <AppartmentNumber>52</AppartmentNumber>\n" + 
+    "            <BuildingNumber>41</BuildingNumber>\n" + 
+    "            <AppartmentNumber>5225</AppartmentNumber>\n" + 
     "            <ZIPCode>010000</ZIPCode>\n" + 
-    "            <KATO>3510111001</KATO>\n" + 
+    "            <KATO>311111</KATO>\n" + 
     "            <StreetTypeCode>24</StreetTypeCode>\n" + 
-    "            <StreetCode>002803</StreetCode>\n" + 
+    "            <StreetCode>0003</StreetCode>\n" + 
     "        </jurAddress>\n" + 
     "        <IsRezident>true</IsRezident>\n" + 
     "        <IncCountry>398</IncCountry>\n" + 
@@ -96,10 +75,10 @@ public class NodeToMyNode {
     "        </Agency>\n" + 
     "    </ns2:Gbdulfullinfo>\n" + 
     "    <ns2:GBDFLResponse>\n" + 
-    "        <iin>940531451013</iin>\n" + 
-    "        <surname>БУРКИТБАЕВА</surname>\n" + 
-    "        <name>КОРЛАН</name>\n" + 
-    "        <patronymic>СЕРИКОВНА</patronymic>\n" + 
+    "        <iin>9112</iin>\n" + 
+    "        <surname>БА</surname>\n" + 
+    "        <name>КН</name>\n" + 
+    "        <patronymic>СА</patronymic>\n" + 
     "        <birthDate>1994-05-31</birthDate>\n" + 
     "        <gender>\n" + 
     "            <code>2</code>\n" + 
@@ -147,7 +126,7 @@ public class NodeToMyNode {
     "            <city>КЫЗЫЛТАН</city>\n" + 
     "        </birthPlace>\n" + 
     "        <regAddress>\n" + 
-    "            <city>КЫЗЫЛТАН</city>\n" + 
+    "            <city>КЫН</city>\n" + 
     "            <street>ЖАСТАР</street>\n" + 
     "            <building>3</building>\n" + 
     "            <flat>2</flat>\n" + 
