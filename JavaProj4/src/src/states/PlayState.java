@@ -14,10 +14,10 @@ import java.io.File;
 import java.io.IOException;
 
 import javaproj4.Platformer;
-import src.sprites.Ground;
-import src.sprites.Platform;
-import src.sprites.Player;
-//import src.sprites.Star;
+import src.game_objects.Ground;
+import src.game_objects.Platform;
+import src.game_objects.Player;
+//import src.game_objects.Star;
 
 import java.util.HashSet;
 import java.util.Set;

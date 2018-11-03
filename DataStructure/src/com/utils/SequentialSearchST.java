@@ -1,6 +1,6 @@
 package com.utils;
 
-/** последовательный поиск (в неопорядоченном связном списке) */
+/** последовательный поиск (в неупорядоченном связном списке) */
 public class SequentialSearchST<Key extends Comparable<Key>, Value> {
     private Node first;
     private Node last;

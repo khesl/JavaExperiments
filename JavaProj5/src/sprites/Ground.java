@@ -39,7 +39,7 @@ public class Ground {
     }
 
     /**
-     * Calculating sprites overlaps
+     * Calculating game_objects overlaps
      * @param player player bounds
      * @return
      */

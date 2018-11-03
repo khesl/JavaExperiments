@@ -9,15 +9,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import org.json.HTTP;
-import org.json.*;
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
-import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.json.simple.JSONObject;
 
 
 public class Main {    
@@ -81,7 +77,7 @@ public class Main {
     
     
     private void mySend2() throws IOException {
-        HttpClient httpClient = HttpClientBuilder.create().build(); //Use this instead 
+        org.apache.http.client.HttpClient httpClient = HttpClientBuilder.create().build(); //Use this instead
         //CloseableHttpClient httpClient = HttpClientBuilder.create().build();
         
         String key = "AIzaSyBfB-K5jOzEUMfgKw0p6HhM0T5J8xNlEuw";

@@ -42,7 +42,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pool;
 
-/** This class is used to draw particles as point sprites.
+/** This class is used to draw particles as point game_objects.
  * @author Inferno */
 public class PointSpriteParticleBatch extends BufferedParticleBatch<PointSpriteControllerRenderData> {
 	private static boolean pointSpritesEnabled = false;

@@ -38,7 +38,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 
 /** This is a custom shader to render the particles. Usually is not required, because the {@link DefaultShader} will be used
- * instead. This shader will be used when dealing with billboards using GPU mode or point sprites.
+ * instead. This shader will be used when dealing with billboards using GPU mode or point game_objects.
  * @author inferno */
 public class ParticleShader extends BaseShader {
 	public enum ParticleType {

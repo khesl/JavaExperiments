@@ -69,6 +69,20 @@ public class Arm extends Entity{
         setBounds(new Rectangle(position.x, position.y, image.getWidth(), image.getHeight()/2));
         stayOnObject = false;
     }
+    public Arm(BufferedImage image){ // пока что без отлова ошибки
+        //public Player() throws IOException {
+        //new Texture("src\\assets\\player.png");
+        // Initial player position
+        this.image = image;
+
+        System.out.println("basic  localMaxX (" + localMaxX + "), localMinX (" + localMinX +
+                "), localMaxY (" + localMaxY + "), localMinY (" + localMinY + ")");
+        setPosition(new Vector2(30, 50));
+        // Initial velocity for player down on ground
+        velocity = new Vector2(0, 0);
+        setBounds(new Rectangle(position.x, position.y, image.getWidth(), image.getHeight()/2));
+        stayOnObject = false;
+    }
 
     public Vector2 getPosition() {
         return position;

@@ -49,7 +49,7 @@ import com.badlogic.gdx.utils.reflect.ReflectionException;
 
 /** A skin stores resources for UI widgets to use (texture regions, ninepatches, fonts, colors, etc). Resources are named and can
  * be looked up by name and type. Resources can be described in JSON. Skin provides useful conversions, such as allowing access to
- * regions in the atlas as ninepatches, sprites, drawables, etc. The get* methods return an instance of the object in the skin.
+ * regions in the atlas as ninepatches, game_objects, drawables, etc. The get* methods return an instance of the object in the skin.
  * The new* methods return a copy of an instance in the skin.
  * <p>
  * See the <a href="https://github.com/libgdx/libgdx/wiki/Skin">documentation</a> for more.

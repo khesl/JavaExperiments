@@ -1354,22 +1354,22 @@ public interface GL30 extends GL20 {
 	public void glInvalidateSubFramebuffer (int target, int numAttachments, java.nio.IntBuffer attachments, int x, int y,
 		int width, int height);
 
-// // C function void glTexStorage2D ( GLenum target, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height )
+// // C function void glTexStorage2D ( GLenum target, GLsizei config_objects, GLenum internalformat, GLsizei width, GLsizei height )
 //
 // public void glTexStorage2D(
 // int target,
-// int levels,
+// int config_objects,
 // int internalformat,
 // int width,
 // int height
 // );
 //
-// // C function void glTexStorage3D ( GLenum target, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height,
+// // C function void glTexStorage3D ( GLenum target, GLsizei config_objects, GLenum internalformat, GLsizei width, GLsizei height,
 // GLsizei depth )
 //
 // public void glTexStorage3D(
 // int target,
-// int levels,
+// int config_objects,
 // int internalformat,
 // int width,
 // int height,

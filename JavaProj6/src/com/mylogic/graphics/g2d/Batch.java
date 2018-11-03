@@ -47,10 +47,10 @@ public interface Batch extends Disposable {
      * u, v. The {@link #getColor()} from the Batch is not applied. */
     public void draw (BufferedImage texture, float[] spriteVertices, int offset, int count);
 
-    /** Causes any pending sprites to be rendered, without ending the Batch. */
+    /** Causes any pending game_objects to be rendered, without ending the Batch. */
     public void flush();
 
-    /** @return true if blending for sprites is enabled */
+    /** @return true if blending for game_objects is enabled */
     public boolean isBlendingEnabled();
 
     /** @return true if currently between begin and end. */

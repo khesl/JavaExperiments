@@ -1,7 +1,7 @@
 package com.parsing.XsdToString;
 
-import com.parsing.XsdToString.CheckDataTypes_1.CheckRequest;
-import com.parsing.XsdToString.CheckDataTypes_1.FIO;
+//import com.parsing.XsdToString.CheckDataTypes_1.CheckRequest;
+//import com.parsing.XsdToString.CheckDataTypes_1.FIO;
 
 public class examData_1 {
 
@@ -10,7 +10,7 @@ public class examData_1 {
         super();
     }
 
-    public enum AvailableTypes {
+    /*public enum AvailableTypes {
         STRING {
             public Object getTypeObject(Object obj) {
                 return String.valueOf(obj);
@@ -31,12 +31,12 @@ public class examData_1 {
 
 
         public abstract Object getTypeObject(Object obj);
-    }
+    }*/
 
     /** более полный от генерации класс
      * 
      * */
-    private enum AttributesEnum {
+    /*private enum AttributesEnum {
         Name {
             public Object get(CheckRequest obj) {
                 return obj.getName();
@@ -83,9 +83,9 @@ public class examData_1 {
             }
             return vals;
         }
-    }
+    }*/
 
-    public enum ExamData {
+    /*public enum ExamData {
         // nameAttr                 (name,                  type),
         Name("Name", AvailableTypes.STRING) {
             public Object get(CheckRequest obj) {
@@ -165,8 +165,8 @@ public class examData_1 {
                 vals = ExamData.values();
             }
             return vals;
-        }*/
-    }
+        }/
+    }*/
 
     /*public static final int NAME = ExamData.Name.index();
     public static final int SURNAME = ExamData.Surname.index();

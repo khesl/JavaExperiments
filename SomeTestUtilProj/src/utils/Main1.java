@@ -1,4 +1,4 @@
-package utils;
+//package utils;
 
 import java.text.ParseException;
 
@@ -17,6 +17,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+
+
 public class Main1 {
     public String info = "AED>>>Дирхам (ОАЭ)\n" + "BEF>>>Бельгийский франк\n";
     
@@ -30,6 +33,10 @@ public class Main1 {
 
     public static void main(String[] args) {
         Main1 main1 = new Main1();
+
+        SignUtil sign = new SignUtil();
+
+
         
         // System.out.println(main1.convertUTF("http://www.google.com"));
         //System.out.println(main1.normalizeText("http://www.google.com"));

@@ -8,13 +8,9 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import java.awt.geom.*;
 import java.awt.image.BufferedImage;
 
 import java.awt.image.RasterFormatException;
@@ -22,7 +18,6 @@ import java.awt.image.RasterFormatException;
 import java.io.File;
 import java.io.IOException;
 
-import java.util.Date;
 import java.util.Timer;
 
 import java.util.TimerTask;
@@ -30,7 +25,6 @@ import java.util.TimerTask;
 import javax.imageio.ImageIO;
 
 import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.ActionMap;
 import javax.swing.ImageIcon;
 import javax.swing.InputMap;
@@ -43,7 +37,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
 
-import src.sprites.Player; // 2D фигурки
+import src.game_objects.Player; // 2D фигурки
 
 public class AnimTest1 extends JFrame{
 

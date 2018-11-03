@@ -328,7 +328,7 @@ public class TextureAtlas implements Disposable {
 		return matched;
 	}
 
-	/** Returns all regions in the atlas as sprites. This method creates a new sprite for each region, so the result should be
+	/** Returns all regions in the atlas as game_objects. This method creates a new sprite for each region, so the result should be
 	 * stored rather than calling this method multiple times.
 	 * @see #createSprite(String) */
 	public Array<Sprite> createSprites () {
@@ -362,8 +362,8 @@ public class TextureAtlas implements Disposable {
 		return null;
 	}
 
-	/** Returns all regions with the specified name as sprites, ordered by smallest to largest {@link AtlasRegion#index index}. This
-	 * method uses string comparison to find the regions and constructs new sprites, so the result should be cached rather than
+	/** Returns all regions with the specified name as game_objects, ordered by smallest to largest {@link AtlasRegion#index index}. This
+	 * method uses string comparison to find the regions and constructs new game_objects, so the result should be cached rather than
 	 * calling this method multiple times.
 	 * @see #createSprite(String) */
 	public Array<Sprite> createSprites (String name) {
@@ -456,7 +456,7 @@ public class TextureAtlas implements Disposable {
 	static public class AtlasRegion extends TextureRegion {
 		/** The number at the end of the original image file name, or -1 if none.<br>
 		 * <br>
-		 * When sprites are packed, if the original file name ends with a number, it is stored as the index and is not considered as
+		 * When game_objects are packed, if the original file name ends with a number, it is stored as the index and is not considered as
 		 * part of the sprite's name. This is useful for keeping animation frames in order.
 		 * @see TextureAtlas#findRegions(String) */
 		public int index;

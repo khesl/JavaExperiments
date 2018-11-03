@@ -27,8 +27,8 @@ public abstract class AbstractState {
     public abstract void update(float delta);
 
     /**
-     * Render sprites
-     * @param batch sprites collections for render
+     * Render game_objects
+     * @param batch game_objects collections for render
      */
     public abstract void render(SpriteBatch batch);
 

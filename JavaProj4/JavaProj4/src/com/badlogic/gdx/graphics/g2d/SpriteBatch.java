@@ -69,7 +69,7 @@ public class SpriteBatch implements Batch {
 	/** Number of rendering calls, ever. Will not be reset unless set manually. **/
 	public int totalRenderCalls = 0;
 
-	/** The maximum number of sprites rendered in one batch so far. **/
+	/** The maximum number of game_objects rendered in one batch so far. **/
 	public int maxSpritesInBatch = 0;
 
 	/** Constructs a new SpriteBatch with a size of 1000, one buffer, and the default shader.
@@ -90,11 +90,11 @@ public class SpriteBatch implements Batch {
 	 * <p>
 	 * The defaultShader specifies the shader to use. Note that the names for uniforms for this default shader are different than
 	 * the ones expect for shaders set with {@link #setShader(ShaderProgram)}. See {@link #createDefaultShader()}.
-	 * @param size The max number of sprites in a single batch. Max of 8191.
+	 * @param size The max number of game_objects in a single batch. Max of 8191.
 	 * @param defaultShader The default shader to use. This is not owned by the SpriteBatch and must be disposed separately. */
 	public SpriteBatch (int size, ShaderProgram defaultShader) {
-		// 32767 is max vertex index, so 32767 / 4 vertices per sprite = 8191 sprites max.
-		if (size > 8191) throw new IllegalArgumentException("Can't have more than 8191 sprites per batch: " + size);
+		// 32767 is max vertex index, so 32767 / 4 vertices per sprite = 8191 game_objects max.
+		if (size > 8191) throw new IllegalArgumentException("Can't have more than 8191 game_objects per batch: " + size);
 
 		VertexDataType vertexDataType = (Gdx.gl30 != null) ? VertexDataType.VertexBufferObjectWithVAO : defaultVertexDataType;
 

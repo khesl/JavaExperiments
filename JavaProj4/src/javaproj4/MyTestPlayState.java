@@ -1,6 +1,6 @@
 package javaproj4;
 
-import src.sprites.Sprite;
+import src.game_objects.Sprite;
 
 import com.mylogic.math.Vector2;
 
@@ -41,9 +41,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
 
-import src.sprites.Entity;
-import src.sprites.Platform;
-import src.sprites.Player; // 2D фигурки
+import src.game_objects.Entity;
+import src.game_objects.Platform;
+import src.game_objects.Player; // 2D фигурки
 
 /**
  * Рабочий проект 2D платформера на Java, реализовано почти на чистой джаве
@@ -76,6 +76,7 @@ public class MyTestPlayState extends JFrame{
     public static final int HEIGHT_FIELD = 240; // типо глобальный Y
     public static final String TITLE = "Sky platform";
     public static final boolean debugMode = false;
+    public static final boolean keyDebugMode = false;
     public static BufferedImage myImage;
     public static final float delta = 0.5f;
     public static Image visibleImage;
@@ -98,19 +99,23 @@ public class MyTestPlayState extends JFrame{
     private TypeObject typeObject;
     
     
-    private static Player player = new Player();
+    private static Player player;
     
     //private Platformer p = new Platformer();
 
+    private static String path_correction = "JavaProj4/";
+
     public MyTestPlayState() throws IOException {
-        dude = ImageIO.read(new File("src/res/assets/player.png"));
-        dude1 = ImageIO.read(new File("src/res/assets/dude1.png"));
-        dude2 = ImageIO.read(new File("src/res/assets/dude2.png"));
-        dude2_2 = ImageIO.read(new File("src/res/assets/dude2_2.png"));
-        dude3 = ImageIO.read(new File("src/res/assets/dude3.png"));
-        dude3_2 = ImageIO.read(new File("src/res/assets/dude3_2.png"));
-        dude4 = ImageIO.read(new File("src/res/assets/dude4.png"));
-        
+        dude = ImageIO.read(new File(path_correction + "src/res/assets/player.png"));
+        dude1 = ImageIO.read(new File(path_correction + "src/res/assets/dude1.png"));
+        dude2 = ImageIO.read(new File(path_correction + "src/res/assets/dude2.png"));
+        dude2_2 = ImageIO.read(new File(path_correction + "src/res/assets/dude2_2.png"));
+        dude3 = ImageIO.read(new File(path_correction + "src/res/assets/dude3.png"));
+        dude3_2 = ImageIO.read(new File(path_correction + "src/res/assets/dude3_2.png"));
+        dude4 = ImageIO.read(new File(path_correction + "src/res/assets/dude4.png"));
+
+        player = new Player(dude);
+
         //p.create();
         //p.render();
         
@@ -154,7 +159,7 @@ public class MyTestPlayState extends JFrame{
         for (int i = 0; i < 11; i++){
             ArrayList<BufferedImage> temp = new ArrayList<BufferedImage>();
             for (int j = 0;j < 18; j++){
-                BufferedImage tempI = ImageIO.read(new File("src/res/assets/64643.png"));
+                BufferedImage tempI = ImageIO.read(new File(path_correction + "src/res/assets/64644.png"));
                 temp.add(tempI.getSubimage(j*(16 + 1), i*(16 + 1), 16, 16));
             }
             assets1.add(temp);
@@ -211,7 +216,7 @@ public class MyTestPlayState extends JFrame{
                     int x = 16*j;
                     int y = 16*i;
                     //assets1.get(2).get(15) - пустота
-                    sprites.add(new Platform(new Vector2(x, y), assets1.get(2).get(14), TypeObject.air));
+                    sprites.add(new Platform(new Vector2(x, y), assets1.get(2).get(17), TypeObject.air));
                     //spritesLocal.add(new Platform(new Vector2(y, x), assets1.get(2).get(14), TypeObject.air));
                     //sprites2[i][j] = new Platform(new Vector2(x, y), assets1.get(2).get(14), TypeObject.air);
                 }
@@ -455,7 +460,7 @@ public class MyTestPlayState extends JFrame{
                             }
                         }
                         try {
-                            this.sleep(250);
+                            this.sleep(200); // 200 - норма движение, больше для тестирования.
                         } catch (InterruptedException e) {
                         }
                         repaint();
@@ -611,41 +616,47 @@ public class MyTestPlayState extends JFrame{
             am.put("onSpace", new AbstractAction() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(" _jump_");
+                    if (keyDebugMode && !debugMode) System.out.print("'_jump_'");
+                    if ((debugMode && !keyDebugMode) || (keyDebugMode && debugMode)) System.out.println(" _jump_");
                     move(getPlayerBanch(), MoveAction.jump);
                 }
             });
             am.put("onLeft", new AbstractAction() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(" <- left?");
+                    if (keyDebugMode && !debugMode) System.out.print("'<-'");
+                    if ((debugMode && !keyDebugMode) || (keyDebugMode && debugMode)) System.out.println(" <- left?");
                     if (!isLeftAction()) move(getPlayerBanch(), MoveAction.left);
                 }
             });
             am.put("onLeftReleased", new AbstractAction() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(" <- leftReleased");
+                    if (keyDebugMode && !debugMode) System.out.print("'<-*'");
+                    if ((debugMode && !keyDebugMode) || (keyDebugMode && debugMode)) System.out.println(" <- leftReleased");
                     move(getPlayerBanch(), MoveAction.stopAfterL);
                 }
             });
             am.put("onRight", new AbstractAction() {
 
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(" -> right?");
+                    if (keyDebugMode && !debugMode) System.out.print("'->'");
+                    if ((debugMode && !keyDebugMode) || (keyDebugMode && debugMode)) System.out.println(" -> right?");
                     if (!isRightAction()) move(getPlayerBanch(), MoveAction.right);
                 }
             });
             am.put("onRightReleased", new AbstractAction() {
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(" -> rightReleased");
+                    if (keyDebugMode && !debugMode) System.out.print("'->*'");
+                    if ((debugMode && !keyDebugMode) || (keyDebugMode && debugMode)) System.out.println(" -> rightReleased");
                     move(getPlayerBanch(), MoveAction.stopAfterR);
                 }
             });
             am.put("onUp", new AbstractAction() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(" /|\\ up?");
+                    if (keyDebugMode && !debugMode) System.out.print("'/|\\'");
+                    if ((debugMode && !keyDebugMode) || (keyDebugMode && debugMode)) System.out.println(" /|\\ up?");
                     //setRender(true);
                     move(getPlayerBanch(), MoveAction.jump);
                 }
@@ -653,7 +664,8 @@ public class MyTestPlayState extends JFrame{
             am.put("onDown", new AbstractAction() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    System.out.println(" \\|/ down?");
+                    if (keyDebugMode && !debugMode) System.out.print("'\\|/'");
+                    if ((debugMode && !keyDebugMode) || (keyDebugMode && debugMode))System.out.println(" \\|/ down?");
                     //setRender(false);
                     move(getPlayerBanch(), MoveAction.down);
                 }
@@ -686,7 +698,7 @@ public class MyTestPlayState extends JFrame{
             switch (action) {
             case left:
                 {
-                    System.out.println("left motion");
+                    if (keyDebugMode) System.out.println("left motion");
                     actionReset();
                     setLeftAction(true);
                     player.left();
@@ -695,7 +707,7 @@ public class MyTestPlayState extends JFrame{
                 }
             case right:
                 {
-                    System.out.println("right motion");
+                    if (keyDebugMode) System.out.println("right motion");
                     actionReset();
                     setRightAction(true);
                     player.right();
@@ -704,7 +716,7 @@ public class MyTestPlayState extends JFrame{
                 }
             case jump:
                 {
-                    System.out.println("jump motion");
+                    if (keyDebugMode) System.out.println("jump motion");
                     player.jump();
                     break;
                 }

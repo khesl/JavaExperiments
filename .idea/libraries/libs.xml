@@ -1,0 +1,28 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libs/commons-logging-1.2-bin.zip!/" />
+      <root url="jar://$PROJECT_DIR$/libs/lwjgl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/json-simple-1.1.jar.zip!/" />
+      <root url="jar://$PROJECT_DIR$/libs/json-simple-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/calcan_libs/commons-logging-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/calcan_libs/kalkancrypt-0.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/calcan_libs/kalkancrypt_xmldsig-0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/calcan_libs/xmlsec-1.5.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/ejb-api-3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/slf4j-api-1.7.25.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SomeTestUtilProj/bin/utils/SomeTestUtilProj.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/calcan_libs/kalkan_lib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/soa-model-core-1.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/httpclient-4.3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/httpcore-4.4.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/dropbox-core-sdk-3.0.10/dropbox-core-sdk-3.0.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/dropbox-core-sdk-3.0.10/lib/jackson-core-2.7.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/libs/telegram-_api-_bridge.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/libs/calcan_libs/kalkan_lib.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -31,7 +31,7 @@ public class SpriteBatch implements Batch {
     /** Number of rendering calls, ever. Will not be reset unless set manually. **/
     public int totalRenderCalls = 0;
 
-    /** The maximum number of sprites rendered in one batch so far. **/
+    /** The maximum number of game_objects rendered in one batch so far. **/
     public int maxSpritesInBatch = 0;
 
     /** Constructs a new SpriteBatch with a size of 1000, one buffer, and the default shader.

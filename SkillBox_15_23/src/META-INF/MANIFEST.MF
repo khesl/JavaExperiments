@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Class-Path: commons-logging-1.2-bin.zip lwjgl.jar json-simple-1.1.jar.
+ zip json-simple-1.1.jar commons-logging-1.1.1.jar kalkancrypt-0.1.1.j
+ ar kalkancrypt_xmldsig-0.2.jar xmlsec-1.5.8.jar ejb-api-3.0.jar slf4j
+ -api-1.7.25.jar SomeTestUtilProj.jar kalkan_lib.jar soa-model-core-1.
+ 5.0.jar httpclient-4.3.6.jar httpcore-4.4.9.jar
+Main-Class: utils.Http
+

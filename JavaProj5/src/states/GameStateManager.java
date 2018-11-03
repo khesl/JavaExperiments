@@ -51,7 +51,7 @@ public class GameStateManager {
 
     /**
      * Run render logic for current state
-     * @param batch sprites collections for render
+     * @param batch game_objects collections for render
      */
     public void render(SpriteBatch batch){
         states.peek().render(batch);

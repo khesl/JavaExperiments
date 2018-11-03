@@ -85,16 +85,22 @@ public class MyTestPlayState extends JFrame{
     private int moveCount;
     private JFrame jf;
     private MyPanel jp;
-    private volatile boolean render = true;    
-    
-    private static Arm player = new Arm();
+    private volatile boolean render = true;
+
+    private static Arm player; //private static Arm player = new Arm();
+    private String path_correction = "JavaProj6/";
     
     //private Platformer p = new Platformer();
 
     public MyTestPlayState() throws IOException {
-        armTexture = ImageIO.read(new File("src/assets/arm.png"));
-        backGroundImage = ImageIO.read(new File("src/assets/halloween_texture(2).jpg"));
-        backScoreImage = ImageIO.read(new File("src/assets/score.png"));
+        //String g_path = "";
+        //{ File directory = new File("./"); g_path = directory.getAbsolutePath(); }
+        //System.out.println(g_path);
+        armTexture = ImageIO.read(new File(path_correction + "src/assets/arm.png"));
+        backGroundImage = ImageIO.read(new File(path_correction + "src/assets/halloween_texture(2).jpg"));
+        backScoreImage = ImageIO.read(new File(path_correction + "src/assets/score.png"));
+
+        player = new Arm(armTexture);
             
         //p.create();
         //p.render();
@@ -140,7 +146,7 @@ public class MyTestPlayState extends JFrame{
             for (int i = 0; i < 2; i++){
                 for (int j = 0;j < 5; j++){
                     System.out.print("+1 ");
-                    BufferedImage tempI = ImageIO.read(new File("src/assets/halloween-candy-4.png"));
+                    BufferedImage tempI = ImageIO.read(new File(path_correction + "src/assets/halloween-candy-4.png"));
                     temp.add(tempI.getSubimage(j*(32 + 1), i*(32 + 1), 32, 32)); // temp.add
                 }
             }
@@ -150,7 +156,7 @@ public class MyTestPlayState extends JFrame{
             ArrayList<BufferedImage> temp = new ArrayList<BufferedImage>();
             for (int j = 0;j < 5; j++){
                 System.out.print("+1 ");
-                BufferedImage tempI = ImageIO.read(new File("src/assets/halloween-ghost-4.png"));
+                BufferedImage tempI = ImageIO.read(new File(path_correction + "src/assets/halloween-ghost-4.png"));
                 temp.add(tempI.getSubimage(j*(32 + 1), 0, 32, 32)); // temp.add
             }
             assets1.add(temp);

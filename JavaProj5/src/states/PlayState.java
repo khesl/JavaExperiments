@@ -14,7 +14,7 @@ import base.Platformer;
 import sprites.Ground;
 import sprites.Platform;
 import sprites.Player;
-//import src.sprites.Star;
+//import src.game_objects.Star;
 
 import java.util.HashSet;
 import java.util.Set;

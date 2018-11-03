@@ -426,7 +426,7 @@ public class MyClientGenerator {
         String myNodeClass = "package " + packageName + ".utils;\n" + 
         "\n" + 
         "\n" +
-        "public class MyNodeParser{\n" + 
+        "public class MyNodeParser.java{\n" +
         "    /** Parce sting entry to MyNode structure\n" + 
         "     * \n" + 
         "     * */\n" + 
@@ -518,7 +518,7 @@ public class MyClientGenerator {
         dirFile.mkdir();
         
         try {
-            File newFile = new File(path + "\\utils\\" + "MyNodeParser.java");
+            File newFile = new File(path + "\\utils\\" + "MyNodeParser.java.java");
             FileWriter fileWriter = new FileWriter(newFile);
             fileWriter.write(myNodeClass);
             fileWriter.flush();

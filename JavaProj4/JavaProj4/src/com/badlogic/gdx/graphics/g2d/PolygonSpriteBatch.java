@@ -50,7 +50,7 @@ import com.badlogic.gdx.utils.NumberUtils;
  * A PolygonSpriteBatch is a pretty heavy object so you should only ever have one in your program.
  * <p>
  * A PolygonSpriteBatch works with OpenGL ES 1.x and 2.0. In the case of a 2.0 context it will use its own custom shader to draw
- * all provided sprites. You can set your own custom shader via {@link #setShader(ShaderProgram)}.
+ * all provided game_objects. You can set your own custom shader via {@link #setShader(ShaderProgram)}.
  * <p>
  * A PolygonSpriteBatch has to be disposed if it is no longer used.
  * @author mzechner

@@ -49,7 +49,7 @@ public abstract class Entity {
     public abstract void delCollides(Entity spr);
     
     /**
-     * Calculating sprites overlaps
+     * Calculating game_objects overlaps
      * @param player player bounds
      * @return
      */

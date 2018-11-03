@@ -1,8 +1,5 @@
-package utils;
+//import com.sun.org.apache.xml.internal.security.utils.Base64;
 
-import com.sun.org.apache.xml.internal.security.utils.Base64;
-
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,19 +10,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import java.text.DateFormat;
-
 import java.text.SimpleDateFormat;
 
 import java.util.Calendar;
 
 import java.util.Date;
-
-import javax.jws.WebMethod;
-
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 public class CodeWebConnectionTest {
     private static final String Url = "http://srv-d-osb.acb.kz:8011/API_ClearJunction/Services/Proxy_Services/ClearJ_IBANReserve";
@@ -99,8 +88,8 @@ public class CodeWebConnectionTest {
             String password = "4Bp_r#gwJ"; // "12345678";//
             if(username != null && password != null) {
                 String encodedPassword = username + ":" + password;
-                String encoded = Base64.encode(encodedPassword.getBytes());
-                httpConn.setRequestProperty("Authorization", "bearer "+encoded);
+ //               //String encoded = Base64.encode(encodedPassword.getBytes());
+ //              // httpConn.setRequestProperty("Authorization", "bearer "+encoded);
             }
         }
         

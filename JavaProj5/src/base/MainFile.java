@@ -38,6 +38,13 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.KeyStroke; // 2D фигурки
 
+/**
+ * Рабочий проект, с демонстрацией движения, зачатки анимации. Ощущение что это не последний мой проект..
+ * Тут не интегрировано движение и графитация + текст карта...
+ *
+ * @author VassinAK (khesl) @since 2017
+ * */
+
 public class MainFile extends JFrame{
 
 
@@ -82,15 +89,17 @@ public class MainFile extends JFrame{
 
     }
 
+    private static String path_correction = "JavaProj5/";
+
     public static void main(String[] args) throws IOException {
         //visibleImage = (Image)ImageIO.read(new File("src/res/assets/dude.png"));
-        dude = ImageIO.read(new File("src/assets/player.png"));
-        dude1 = ImageIO.read(new File("src/assets/dude1.png"));
-        dude2 = ImageIO.read(new File("src/assets/dude2.png"));
-        dude2_2 = ImageIO.read(new File("src/assets/dude2_2.png"));
-        dude3 = ImageIO.read(new File("src/assets/dude3.png"));
-        dude3_2 = ImageIO.read(new File("src/assets/dude3_2.png"));
-        dude4 = ImageIO.read(new File("src/assets/dude4.png"));     
+        dude = ImageIO.read(new File(path_correction + "src/assets/player.png"));
+        dude1 = ImageIO.read(new File(path_correction + "src/assets/dude1.png"));
+        dude2 = ImageIO.read(new File(path_correction + "src/assets/dude2.png"));
+        dude2_2 = ImageIO.read(new File(path_correction + "src/assets/dude2_2.png"));
+        dude3 = ImageIO.read(new File(path_correction + "src/assets/dude3.png"));
+        dude3_2 = ImageIO.read(new File(path_correction + "src/assets/dude3_2.png"));
+        dude4 = ImageIO.read(new File(path_correction + "src/assets/dude4.png"));
         MainFile t = new MainFile();
 
     }

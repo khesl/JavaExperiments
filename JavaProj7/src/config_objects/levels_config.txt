@@ -1,0 +1,142 @@
+<levels>
+	<level>
+		<id>0</id>
+		<height>15</height>
+		<width>21</width>
+		<map>
+#sssssssssssssssssss#
+#...................#
+#...................#
+#...................#
+#...................#
+#...................#
+#...................#
+#...................#
+#...................#
+#...................#
+#...................#
+#.........<----->...#
+#...................#
+#...................#
+#####################
+		</map>
+	</level>
+</levels>
+
+<sprites>
+	<sprite>
+		<id>0</id> <!-- не знаю нужен ли он будет, если у меня будет динамическое подвязывание. -->
+		<id_in_seq>0</id_in_seq> <!-- порядковый ИД в sequence -->
+		<sprite_solo_file_type>false</sprite_solo_file_type> <!-- определить соло спрайт или последовательность bool -->
+		<width>16</width>
+		<height>16</height>
+		<typeObject>tile</typeObject>  <!-- экземпляр класса Anim_TypeObject -->
+		<binded_object>global</binded_object>
+		<seq_max_val>198</seq_max_val> <!-- сколько спрайтов в последовательности -->
+		<link>JavaProj7/src/res/assets/64644.png</link> <!-- привязка к определённому объекту. линк на диске. -->
+	</sprite>
+	<sprite>
+		<id>1</id>
+		<id_in_seq>0</id_in_seq>
+		<sprite_solo_file_type>false</sprite_solo_file_type>
+		<width>32</width>
+		<height>48</height>
+		<typeObject>left</typeObject>
+		<binded_object>player</binded_object>
+		<seq_max_val>4</seq_max_val>
+		<link>JavaProj7/src/res/assets/dude_left2.png</link>
+	</sprite>
+	<sprite>
+		<id>2</id>
+		<id_in_seq>0</id_in_seq>
+		<sprite_solo_file_type>false</sprite_solo_file_type>
+		<width>32</width>
+		<height>48</height>
+		<typeObject>right</typeObject>
+		<binded_object>player</binded_object>
+		<seq_max_val>4</seq_max_val>
+		<link>JavaProj7/src/res/assets/dude_right2.png</link>
+	</sprite>
+	<sprite>
+		<id>3</id>
+		<id_in_seq>0</id_in_seq>
+		<sprite_solo_file_type>true</sprite_solo_file_type>
+		<width>32</width>
+		<height>48</height>
+		<typeObject>left_release</typeObject>
+		<binded_object>player</binded_object>
+		<seq_max_val>1</seq_max_val>
+		<link>JavaProj7/src/res/assets/dude_left_release.png</link>
+	</sprite>
+	<sprite>
+		<id>3</id>
+		<id_in_seq>0</id_in_seq>
+		<sprite_solo_file_type>true</sprite_solo_file_type>
+		<width>32</width>
+		<height>48</height>
+		<typeObject>right_release</typeObject>
+		<binded_object>player</binded_object>
+		<seq_max_val>1</seq_max_val>
+		<link>JavaProj7/src/res/assets/dude_right_release.png</link>
+	</sprite>
+	<sprite>
+		<id>4</id>
+		<id_in_seq>0</id_in_seq>
+		<sprite_solo_file_type>true</sprite_solo_file_type>
+		<width>32</width>
+		<height>48</height>
+		<typeObject>idle</typeObject>
+		<binded_object>player</binded_object>
+		<seq_max_val>1</seq_max_val>
+		<link>JavaProj7/src/res/assets/player.png</link>
+	</sprite>
+</sprites>
+
+<animations>
+	<animation>
+		<id>0</id> <!--    -->
+		<type_prev>idle</type_prev>
+		<type_nexts>
+			<type_next>left</type_next>
+			<type_next>right</type_next>
+		</type_nexts>
+		<typeObject>idle</typeObject>
+		<binded_object>player</binded_object>
+	</animation>
+	<animation>
+		<id>1</id>
+		<type_prev>idle</type_prev>
+		<type_nexts>
+			<type_next>left_release</type_next>
+		</type_nexts>
+		<typeObject>left</typeObject>
+		<binded_object>player</binded_object>
+	</animation>
+	<animation>
+		<id>2</id>
+		<type_prev>idle</type_prev>
+		<type_nexts>
+			<type_next>right_release</type_next>
+		</type_nexts>
+		<typeObject>right</typeObject>
+		<binded_object>player</binded_object>
+	</animation>
+	<animation>
+		<id>3</id>
+		<type_prev>left</type_prev>
+		<type_nexts>
+			<type_next>idle</type_next>
+		</type_nexts>
+		<typeObject>left_release</typeObject>
+		<binded_object>player</binded_object>
+	</animation>
+	<animation>
+		<id>4</id>
+		<type_prev>right</type_prev>
+		<type_nexts>
+			<type_next>idle</type_next>
+		</type_nexts>
+		<typeObject>right_release</typeObject>
+		<binded_object>player</binded_object>
+	</animation>
+</animations>

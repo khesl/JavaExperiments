@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ccis">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ThreadTestsSkipy/lib/ccis.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -140,16 +140,16 @@ public interface Batch extends Disposable {
     //   /** Draws a rectangle transformed by the given matrix. */
     //  public void draw (TextureRegion region, float width, float height, Affine2 transform);
 
-    /** Causes any pending sprites to be rendered, without ending the Batch. */
+    /** Causes any pending game_objects to be rendered, without ending the Batch. */
     public void flush();
 
-    /** Disables blending for drawing sprites. Calling this within {@link #begin()}/{@link #end()} will flush the batch. */
+    /** Disables blending for drawing game_objects. Calling this within {@link #begin()}/{@link #end()} will flush the batch. */
     public void disableBlending();
 
-    /** Enables blending for drawing sprites. Calling this within {@link #begin()}/{@link #end()} will flush the batch. */
+    /** Enables blending for drawing game_objects. Calling this within {@link #begin()}/{@link #end()} will flush the batch. */
     public void enableBlending();
 
-    /** Sets the blending function to be used when rendering sprites.
+    /** Sets the blending function to be used when rendering game_objects.
      * @param srcFunc the source function, e.g. GL20.GL_SRC_ALPHA. If set to -1, Batch won't change the blending function.
      * @param dstFunc the destination function, e.g. GL20.GL_ONE_MINUS_SRC_ALPHA */
     public void setBlendFunction(int srcFunc, int dstFunc);
@@ -187,7 +187,7 @@ public interface Batch extends Disposable {
     /** @return the current {@link ShaderProgram} set by {@link #setShader(ShaderProgram)} or the defaultShader */
     public ShaderProgram getShader();
 
-    /** @return true if blending for sprites is enabled */
+    /** @return true if blending for game_objects is enabled */
     public boolean isBlendingEnabled();
 
     /** @return true if currently between begin and end. */

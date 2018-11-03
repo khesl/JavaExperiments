@@ -42,7 +42,7 @@ import com.badlogic.gdx.utils.NumberUtils;
  * later be used for drawing. The size, color, and texture region for each cached image cannot be modified. This information is
  * stored in video memory and does not have to be sent to the GPU each time it is drawn.<br>
  * <br>
- * To cache {@link Sprite sprites} or {@link Texture textures}, first call {@link SpriteCache#beginCache()}, then call the
+ * To cache {@link Sprite game_objects} or {@link Texture textures}, first call {@link SpriteCache#beginCache()}, then call the
  * appropriate add method to define the images. To complete the cache, call {@link SpriteCache#endCache()} and store the returned
  * cache ID.<br>
  * <br>
@@ -113,7 +113,7 @@ public class SpriteCache implements Disposable {
 	public SpriteCache (int size, ShaderProgram shader, boolean useIndices) {
 		this.shader = shader;
 
-		if (useIndices && size > 8191) throw new IllegalArgumentException("Can't have more than 8191 sprites per batch: " + size);
+		if (useIndices && size > 8191) throw new IllegalArgumentException("Can't have more than 8191 game_objects per batch: " + size);
 
 		mesh = new Mesh(true, size * (useIndices ? 4 : 6), useIndices ? size * 6 : 0, new VertexAttribute(Usage.Position, 2,
 			ShaderProgram.POSITION_ATTRIBUTE), new VertexAttribute(Usage.ColorPacked, 4, ShaderProgram.COLOR_ATTRIBUTE),

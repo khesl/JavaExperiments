@@ -37,7 +37,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
 
-import src.sprites.Player; // 2D фигурки
+import src.game_objects.Player; // 2D фигурки
 
 public class AnimTest1 extends JFrame{
 
