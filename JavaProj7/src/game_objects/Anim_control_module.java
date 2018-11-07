@@ -21,7 +21,6 @@ public class Anim_control_module {
     private int seq_Controller_component = 1;
     private List<Anim_Sprite> list_anim = new ArrayList<Anim_Sprite>();
 
-
     private static String configPath = MyConstants.CONFIG_PATH;
     private List<Level> listLevels = new ArrayList<Level>();
 

@@ -1,7 +1,7 @@
 package src.game_objects;
 
-import com.badlogic.gdx.math.Rectangle;
-import com.badlogic.gdx.math.Vector2;
+import src.math.Rectangle;
+import src.math.Vector2;
 
 import java.awt.image.BufferedImage;
 

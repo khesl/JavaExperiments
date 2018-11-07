@@ -90,6 +90,17 @@
 		<seq_max_val>1</seq_max_val>
 		<link>JavaProj7/src/res/assets/player.png</link>
 	</sprite>
+	<sprite>
+		<id>5</id>
+		<id_in_seq>0</id_in_seq>
+		<sprite_solo_file_type>true</sprite_solo_file_type>
+		<width>32</width>
+		<height>48</height>
+		<typeObject>jump</typeObject>
+		<binded_object>player</binded_object>
+		<seq_max_val>1</seq_max_val>
+		<link>JavaProj7/src/res/assets/player.png</link>
+	</sprite>
 </sprites>
 
 <animations>
@@ -139,4 +150,13 @@
 		<typeObject>right_release</typeObject>
 		<binded_object>player</binded_object>
 	</animation>
+	<animation>
+		<id>5</id>
+		<type_prev>any</type_prev>
+		<typeObject>jump</typeObject>
+		<binded_object>player</binded_object>
+	</animation>
+	
 </animations>
+
+	

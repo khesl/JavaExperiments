@@ -1,14 +1,14 @@
 package src.game_objects;
 
-import com.mylogic.math.Rectangle;
-import com.mylogic.math.Vector2;
+import src.math.Rectangle;
+import src.math.Vector2;
 
 import java.awt.image.BufferedImage;
 
 import java.io.File;
 import java.io.IOException;
 
-import javaproj4.Platformer;
+//import javaproj4.Platformer;
 
 import javaproj4.utils.TypeObject;
 
@@ -23,7 +23,7 @@ public class Ground extends Sprite {
     private Rectangle bounds;
     private static int height = 20;
     private TypeObject typeObject;
-
+    public static final int WIDTH = 640;
     /**
      * Constructor for initialize sprite, bounds, position
      */
@@ -34,7 +34,7 @@ public class Ground extends Sprite {
         }
         this.height = height;
         position = new Vector2(0, 0);
-        bounds = new Rectangle(position.x, position.y, Platformer.WIDTH, this.height);
+        bounds = new Rectangle(position.x, position.y, WIDTH, this.height);
     }
 
 
@@ -43,9 +43,9 @@ public class Ground extends Sprite {
      * @param player player bounds
      * @return
      */
-    public boolean collides(Rectangle player) {
+    /*public boolean collides(Rectangle player) {
         return bounds.overlaps(player);
-    }
+    }*/
 
     /**
      * Unload resources

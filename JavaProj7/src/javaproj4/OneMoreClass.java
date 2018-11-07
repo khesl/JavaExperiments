@@ -1,7 +1,7 @@
-package javaproj4;
+package src.javaproj4;
 
-import com.mylogic.backends.lwjgl.LwjglApplication;
-import com.mylogic.backends.lwjgl.LwjglApplicationConfiguration;
+/*import com.mylogic.backends.lwjgl.LwjglApplication;
+import com.mylogic.backends.lwjgl.LwjglApplicationConfiguration;*/
 
 public class OneMoreClass{
 
@@ -10,7 +10,7 @@ public class OneMoreClass{
         super();
     }
     
-    public static void main(String[] args){
+   /* public static void main(String[] args){
         //OneMoreClass t = new OneMoreClass();
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
          config.width = Platformer.WIDTH;
@@ -19,5 +19,5 @@ public class OneMoreClass{
         new LwjglApplication(new Platformer(), config);
         
 
-    }
+    }*/
 }

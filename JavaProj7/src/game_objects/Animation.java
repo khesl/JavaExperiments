@@ -29,10 +29,12 @@ public class Animation {
     private List<Anim_Sprite> listSprites = new ArrayList<Anim_Sprite>();
     private int curSprite = 0;
 
-    public int getCurSprite(){return curSprite; }
+    public int getCurIdSprite(){return curSprite; }
+    public Image getCurSprite(){return listSprites.get(curSprite).getImage(); }
     private int getNewSpriteCount(){
-        if (curSprite >= seq_max_val) curSprite = 0;
-        return curSprite++;
+        if (curSprite >= seq_max_val - 1) curSprite = 0;
+        else curSprite++;
+        return curSprite;
     }
     public Anim_Sprite getNewSprite(){
         //System.out.println("getNewSprite " + curSprite);

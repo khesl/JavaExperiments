@@ -1,6 +1,6 @@
-package javaproj4;
+package src.javaproj4;
 
-import com.mylogic.ApplicationAdapter;
+/*import com.mylogic.ApplicationAdapter;
 import com.mylogic.Gdx;
 //import com.mylogic.audio.Music;
 import com.mylogic.graphics.GL20;
@@ -10,13 +10,14 @@ import com.mylogic.graphics.GL20;
 import com.mylogic.graphics.g2d.SpriteBatch;
 
 import src.states.GameStateManager;
-import src.states.MenuState;
+import src.states.MenuState;*/
 
 /**
  * Main class initialization all game components and listen game event.
  * Send game events to other components.
  */
-public class Platformer extends ApplicationAdapter {
+public class Platformer{}
+/*public class Platformer extends ApplicationAdapter {
 
     public static final int WIDTH = 640;
     public static final int HEIGHT = 480;
@@ -51,4 +52,4 @@ public class Platformer extends ApplicationAdapter {
     //    backgroundMusic.dispose();
 
     }
-}
+}*/

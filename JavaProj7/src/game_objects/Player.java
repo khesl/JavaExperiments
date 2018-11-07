@@ -12,10 +12,12 @@ package src.game_objects;
 import src.math.Rectangle;
 import src.math.Vector2;
 import src.control.MyPlayState_Modificate;
+import src.utils.Anim_TypeObjectEnum;
+import src.utils.Utils;
+import src.utils._BindObjectEnum;
 
 import java.awt.image.BufferedImage;
 
-import java.util.ArrayList;
 
 public class Player extends Entity {
     // Movement on X axis
@@ -27,6 +29,7 @@ public class Player extends Entity {
     // Gravity takes away from the Y axis
     public static final int GRAVITY = -10;
     private static boolean isInverse = true;
+    private Anim_TypeObjectEnum curMove;
 
     private static boolean debugMode = false;
 
@@ -45,18 +48,22 @@ public class Player extends Entity {
         //public Player() throws IOException {
         //new Texture("src\\assets\\player.png");
         // Initial player position
+        this.setBindType(_BindObjectEnum.player);
         if (!isImageLoad)
             System.out.println("Image is empty");
         stayOnObject = false;
     }
-    public Player(Vector2 position, Vector2 velocity, BufferedImage image){ // пока что без отлова ошибки
+    public Player(Vector2 position, Vector2 velocity, BufferedImage image, Animator_controller animator_controller){ // пока что без отлова ошибки
         //public Player() throws IOException {
         //new Texture("src\\assets\\player.png");
         // Initial player position
+        this.setBindType(_BindObjectEnum.player);
         this.image = image;
         this.position = position;
         // Initial velocity for player down on ground
         this.velocity = velocity;
+        this.animator_controller = animator_controller;
+        curMove = Anim_TypeObjectEnum.idle;
         setStayOnObject(false); //stayOnObject = false;
         setInit(true);
     }
@@ -65,8 +72,11 @@ public class Player extends Entity {
         return isInverse?position:new Vector2(position.x, MyPlayState_Modificate.HEIGHT_FIELD - position.y);
     }
 
-    public BufferedImage getImage() {
+    /*public BufferedImage getImage() {
         return image;
+    }*/
+    public BufferedImage getImage(){
+        return Utils.toBufferedImage(animator_controller.getCurrentNode().getItem().getCurSprite());
     }
 
     public void setImage (BufferedImage image) {
@@ -76,6 +86,12 @@ public class Player extends Entity {
 
     public Rectangle getBounds() { return new Rectangle(position.x, position.y, image.getWidth(), image.getHeight()); }
 
+    public Animator_controller getAnimator_controller(){return animator_controller;}
+
+
+    public Anim_TypeObjectEnum getCurMove() { return curMove; }
+    public void setCurMove(Anim_TypeObjectEnum curMove) { this.curMove = curMove; }
+
     public boolean isStayOnObject() {
         return stayOnObject;
     }
@@ -83,7 +99,7 @@ public class Player extends Entity {
     public void setStayOnObject(boolean stayOnObject) {
         this.stayOnObject = stayOnObject;
         if (stayOnObject) {
-            resetVelocity();
+            resetVelocityY();
         }
     }
 
@@ -96,11 +112,13 @@ public class Player extends Entity {
     }
 
     public void right() {
-        velocity.x = MOVEMENT_ON_X;
+        velocity.x += MOVEMENT_ON_X/3;
+        if (velocity.x >= MOVEMENT_ON_X) velocity.x = MOVEMENT_ON_X;
     }
 
     public void left() {
-        velocity.x = -MOVEMENT_ON_X;
+        velocity.x += -MOVEMENT_ON_X/3;
+        if (velocity.x <= -MOVEMENT_ON_X) velocity.x = -MOVEMENT_ON_X;
     }
 
     /**
@@ -110,15 +128,20 @@ public class Player extends Entity {
         velocity.x = 0;
         velocity.y = 0;
     }
+    public void resetVelocityX() { velocity.x = 0; }
+    public void resetVelocityY() { velocity.y = 0; }
 
     /**
      * Calculating new position
      * @param delta time after last call method render
      */
     public void update(float delta) {
+        // расчет нового спрайта из анимации
+        getAnimator_controller().getCurrentNode().getItem().getNewSprite();
+
      //   System.out.print("old position:" + position.x + ":" + position.y + ";");
         Vector2 old_position = new Vector2(position.x, position.y);
-        if (position.y > 0) {//0
+        if (position.y < MyPlayState_Modificate.HEIGHT_FIELD - image.getHeight()) {//0 position.y > 0
             // Add velocity vector and gravity vector  (0, -15)
             // For additional information see: https://goo.gl/lD9I77
             velocity.add(0, -GRAVITY);
@@ -137,23 +160,25 @@ public class Player extends Entity {
         }
 
         //Checking overlaps with game world bounds
-        if (position.y < 0) { position.y = 0; resetVelocity(); }
-        if (position.x < 0) { position.x = 0; resetVelocity(); }
-        // AnimTest1
+        if (position.y < 0) { position.y = 0; resetVelocityY(); }
+        if (position.x < 0) { position.x = 0; resetVelocityX(); }
         if (position.y > MyPlayState_Modificate.HEIGHT_FIELD - image.getHeight()) {
             position.y = MyPlayState_Modificate.HEIGHT_FIELD - image.getHeight();
-            resetVelocity();
+            resetVelocityY();
         }
         if (position.x > MyPlayState_Modificate.WIDTH_FIELD - image.getWidth()) {
             position.x = MyPlayState_Modificate.WIDTH_FIELD - image.getWidth();
-            resetVelocity();
+            resetVelocityX();
         }
 
         //setPosition(position);
         setPosition(getNewInvertPosition(position));// - так как у  меня инвертирован Y...
         //        System.out.println("v = " + velocity + "; p = " + position + "; d = " + delta);
         //System.out.println("compare: " + old_position.y + ":" + position.y);
-        if (old_position.y == position.y) setStayOnObject(true);
+
+        //if (old_position.y == position.y) setStayOnObject(true);
+        if (velocity.y == 0) setStayOnObject(true);
+        else setStayOnObject(false);
       //  System.out.println(" new position:" + position.x + ":" + position.y + "; stay: " + isStayOnObject());
     }
 
@@ -185,6 +210,45 @@ public class Player extends Entity {
 
     public Vector2 getNewInvertPosition(Vector2 position){
         return new Vector2(position.x, MyPlayState_Modificate.HEIGHT_FIELD - position.y - image.getHeight());
+    }
+
+    public void move(Anim_TypeObjectEnum action) {
+        switch (action) {
+            case left: {
+                left();
+                break;
+            }
+            case right: {
+                right();
+                break;
+            }
+            case jump: {
+                jump();
+                break;
+            }
+            case idle: {
+                //resetVelocity();
+                break;
+            }
+            case left_release: {
+                //resetVelocity();
+                break;
+            }
+            case right_release: {
+                //resetVelocity();
+                break;
+            }
+            default: {
+                System.out.println("Object (" + getBindType() + ") has not that move action.");
+                return;
+            }
+        }
+        if (debugMode) System.out.println(getAnimator_controller().getCurrentNode().toString());
+        if (action != getCurMove()){
+            getAnimator_controller().goNextNode(action); // переходим на новую анимацию
+            getAnimator_controller().getCurrentNode().getItem().getNewSprite(); // сдвиг кадра на 1, чтобы пропустить начальный кадр, для плавности.
+        }
+        setCurMove(action);
     }
 
 }

@@ -1,4 +1,4 @@
-package javaproj4;
+package src.javaproj4;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -86,15 +86,17 @@ public class AnimTest1 extends JFrame{
 
     }
 
+    private static String path_correction = "JavaProj7/";
+
     public static void main(String[] args) throws IOException {
         //visibleImage = (Image)ImageIO.read(new File("src/res/assets/dude.png"));
-        dude = ImageIO.read(new File("src/res/assets/player.png"));
-        dude1 = ImageIO.read(new File("src/res/assets/dude1.png"));
-        dude2 = ImageIO.read(new File("src/res/assets/dude2.png"));
-        dude2_2 = ImageIO.read(new File("src/res/assets/dude2_2.png"));
-        dude3 = ImageIO.read(new File("src/res/assets/dude3.png"));
-        dude3_2 = ImageIO.read(new File("src/res/assets/dude3_2.png"));
-        dude4 = ImageIO.read(new File("src/res/assets/dude4.png"));
+        dude = ImageIO.read(new File(path_correction + "src/res/assets/player.png"));
+        dude1 = ImageIO.read(new File(path_correction + "src/res/assets/dude1.png"));
+        dude2 = ImageIO.read(new File(path_correction + "src/res/assets/dude2.png"));
+        dude2_2 = ImageIO.read(new File(path_correction + "src/res/assets/dude2_2.png"));
+        dude3 = ImageIO.read(new File(path_correction + "src/res/assets/dude3.png"));
+        dude3_2 = ImageIO.read(new File(path_correction + "src/res/assets/dude3_2.png"));
+        dude4 = ImageIO.read(new File(path_correction + "src/res/assets/dude4.png"));
         AnimTest1 t = new AnimTest1();
 
     }

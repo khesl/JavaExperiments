@@ -10,6 +10,7 @@ public enum Anim_TypeObjectEnum {
     idle                ("анимация движения покоя"),
     idle2               ("анимация движения покоя"),
     idle3               ("анимация движения покоя"),
+    jump                ("анимация движения прыжка"),
     attack              ("анимация атаки"),
     attack2             ("анимация атаки"),
     attack3             ("анимация атаки"),
@@ -18,6 +19,7 @@ public enum Anim_TypeObjectEnum {
     die                 ("анимация смерти"),
     run                 ("анимация бега"),
     tile                ("тайлы"),
+    any                 ("any_state анимация"),
     stop                ("stop"),
     empty;
 

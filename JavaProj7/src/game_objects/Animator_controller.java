@@ -16,6 +16,7 @@ public class Animator_controller {
     private int id;
     private Node first;
     private Map<Anim_TypeObjectEnum, Node> key_table = new HashMap<Anim_TypeObjectEnum, Node>();
+    private List<Animation> any_state_key_table = new ArrayList<Animation>();
     private Node currentNode;
     private int count = 0;
     public class Node {
@@ -101,7 +102,7 @@ public class Animator_controller {
                     (back != null ? back.key == first.key ? ConsoleColor.setColor(" next back to root Node key: [" + back.key + "]", ConsoleColor.Color.ANSI_RED) : back.toString() : null) + "]";
         }
         public String toStringAll(){
-            return toStringAll("");
+            return toStringAll("") + toStringAllAnyState();
         }
         private String toStringAll(String space){
             String str = space + this.toString() + "\n";
@@ -109,6 +110,15 @@ public class Animator_controller {
                 if (node.key == first.key)
                     str += space + "   " + ConsoleColor.setColor("->", ConsoleColor.Color.ANSI_BLUE) + ConsoleColor.setColor(" next back to root Node key: [" + node.key + "]", ConsoleColor.Color.ANSI_RED) + "\n";
                 else str += node.toStringAll(space + "   ");
+            return str;
+        }
+        private  String toStringAllAnyState(){
+            String str = "\n";
+            for (Animation anim : any_state_key_table)
+                str += ConsoleColor.ANSI_BLUE +"id_anim: " + anim.getId() + ";" + ConsoleColor.ANSI_RESET +
+                    " anim_type: " + ConsoleColor.setColor(anim.getTypeObject().toString(), ConsoleColor.Color.ANSI_GREEN) +
+                    " size(spr): " + anim.getSeq_max_val() + "; " +
+                    ConsoleColor.setColor("\t\tback_animation", ConsoleColor.Color.ANSI_RED) + " [" + ConsoleColor.setColor("any]", ConsoleColor.Color.ANSI_RED) + "]";
             return str;
         }
     }
@@ -136,23 +146,40 @@ public class Animator_controller {
 
         List<Animation_Objects> temp = new ArrayList<Animation_Objects>();
         temp.addAll(animation_Objects);
+        /**
+         * ЗДЕСЬ НУЖНО РЕФАКТОРИТЬ!! ЖЕСТКО, правда это только при загрузке, время будет не значительно
+         * */
         while (!temp.isEmpty()){
             for (Animation_Objects objects : animation_Objects){
+                // теперь будем писать ещё и для any_state
+                if (objects.getType_prev() == Anim_TypeObjectEnum.any) {
+                    if (!findNode(objects.getTypeObject())) {
+                        getFirstNode().addNext(new Resources_manager().getInstance().getSpriteByBindandType(objects.getBinded_object(), objects.getTypeObject()));
+                        any_state_key_table.add(new Resources_manager().getInstance().getSpriteByBindandType(objects.getBinded_object(), objects.getTypeObject()));
+                    }
+                    temp.remove(objects);
+                }
                 // предок должен быть! а вот сам элемент.. уже может быть создан, причём если предок это рут и он равен
                 // current, то изи создаётся для current
                 System.out.println("\t" + objects.toString());
                 if (objects.getType_prev() == objects.getTypeObject())
                     temp.remove(objects);
+                /** убрать дублирование при equal */
                 else {
                     // если это не рут то продолжаем
-                    if (findNode(objects.getType_prev()))
+                    if (findNode(objects.getType_prev())) {
                         //если предок существует
                         if (!findNode(objects.getTypeObject())) {
+                            // если ещё не записан такой объект
                             getNode(objects.getType_prev())
-                                .addNext(new Resources_manager().getInstance().getSpriteByBindandType(objects.getBinded_object(), objects.getTypeObject()));
+                                    .addNext(new Resources_manager().getInstance().getSpriteByBindandType(objects.getBinded_object(), objects.getTypeObject()));
                             temp.remove(objects);
                         }
-
+                        /*else if (currentNode.getNode(objects.getId()) != null){
+                            System.out.println("\t\t" + objects.toString() + " - already Added");
+                            temp.remove(objects);
+                        }*/
+                    }
                 }
             }
         }
@@ -179,6 +206,8 @@ public class Animator_controller {
         return needNode;
     }
     public Node getCurrentNode(){return currentNode;}
+    public Anim_TypeObjectEnum getCurrentAnimation(){ return getCurrentNode().getItem().getTypeObject(); }
+
     public void goNextNode() throws TooManyListenersException {
         if (currentNode.size() == 0) { throw new NullPointerException("No have next Node.");}
         if (currentNode.size() == 1) currentNode = currentNode.next.get(0);
