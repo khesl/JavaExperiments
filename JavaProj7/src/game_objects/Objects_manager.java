@@ -32,9 +32,7 @@ public class Objects_manager {
 
     private void initResources(){
         // инициализация объектов при необходимости
-        while (!resources_manager.isInit()){
-            System.out.println("resources_manager is no init yet");
-        }
+
         player = new Player(new Vector2(30, 100), new Vector2(0, 0),
                 Utils.toBufferedImage(resources_manager.getSpriteByBindandType(_BindObjectEnum.player,
                         Anim_TypeObjectEnum.idle).resetAnimation().getImage()),

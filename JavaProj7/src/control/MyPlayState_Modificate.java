@@ -25,8 +25,10 @@ import java.util.ArrayList;
 public class MyPlayState_Modificate extends JFrame{
     private static MyPlayState_Modificate instance = null;
 
-    public static final int WIDTH = 356;
-    public static final int HEIGHT = 316;
+    public static int WIDTH = 356;
+    private static int deltaWidth = 20; // tileWidthCount - 1?
+    public static int HEIGHT = 316;
+    private static int deltaHeight = 76;
     public static final int WIDTH_FIELD = 340; // типо глобальный X
     public static final int HEIGHT_FIELD = 240; // типо глобальный Y
     public static final String TITLE = "Sky platform";
@@ -39,12 +41,14 @@ public class MyPlayState_Modificate extends JFrame{
     private JFrame jf;
     private Game_statement_manager jp;
 
-    private Resources_manager resources_manager = new Resources_manager().getInstance();
-    private Objects_manager objects_manager = new Objects_manager().getInstance();
+    private static Resources_manager resources_manager = new Resources_manager().getInstance();
 
     public MyPlayState_Modificate() {
         if (instance == null) { // Экземпляр менеджера был найден
             instance = this; // Задаем ссылку на экземпляр объекта
+
+            WIDTH = resources_manager.getScreen_manager().getWidth() + deltaWidth;
+            HEIGHT = resources_manager.getScreen_manager().getHeight() + deltaHeight;
 
             // проверка контроллера аниматора для игрока
             System.out.println("player_control: \n" + resources_manager.getMap_Animator_controller(_BindObjectEnum.player).getCurrentNode().toStringAll());

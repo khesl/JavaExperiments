@@ -1,5 +1,8 @@
 package src.utils.objects;
 
+/**
+ * Содержит параметры которые могут использоваться при конфигурации.
+ * */
 public enum Params {
     id,
     height,
@@ -14,7 +17,8 @@ public enum Params {
     type_prev,
     type_nexts,
     type_next,
-    link;
+    link,
+    title;
 
     private String type;
 

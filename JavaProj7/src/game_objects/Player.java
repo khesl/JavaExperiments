@@ -105,7 +105,7 @@ public class Player extends Entity {
 
     public void jump() {
         if (isStayOnObject()){
-            System.out.println("try jump?");
+            //System.out.println("try jump?");
             velocity.y = -JUMP_RATE;
             setStayOnObject(false);
         }
@@ -114,11 +114,14 @@ public class Player extends Entity {
     public void right() {
         velocity.x += MOVEMENT_ON_X/3;
         if (velocity.x >= MOVEMENT_ON_X) velocity.x = MOVEMENT_ON_X;
+        //new Resources_manager().getInstance().getScreen_manager().fillCurrentScreenMap(new Vector2(4, 0));
+
     }
 
     public void left() {
         velocity.x += -MOVEMENT_ON_X/3;
         if (velocity.x <= -MOVEMENT_ON_X) velocity.x = -MOVEMENT_ON_X;
+        //new Resources_manager().getInstance().getScreen_manager().fillCurrentScreenMap(new Vector2(-4, 0));
     }
 
     /**
@@ -150,7 +153,6 @@ public class Player extends Entity {
         // Calculation new position
         if (velocity.x != 0) {
             position.add(velocity.x * delta, 0);
-            //if (Math.abs(velocity.x) > 10)
             velocity.add(- velocity.x * delta, 0);
             if (Math.abs(velocity.x) < 2) velocity.set(0, velocity.y);
         }

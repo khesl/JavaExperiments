@@ -1,53 +1,49 @@
 package src.utils.objects;
 
-public class Level extends Buildable_Objects {
+public class Screen_Object extends Buildable_Objects{
     private int id;
-    private int height;
     private int width;
-    private String map;
+    private int height;
+    private String title;
 
-
-    protected final static String parentTag = "levels";
-    protected final static String classTag = "level";
+    protected final static String parentTag = "screens";
+    protected final static String classTag = "screen";
 
     public static String getParentClassTag() { return parentTag; }
     public static String getClassTag() { return classTag; }
 
-    public Level() { }
+    public Screen_Object() { }
 
-    @Override
-    public Buildable_Objects getInstance() {
-        return new Level();
-    }
-
-    public Level(int id, int height, int width, String map)
-    {
+    public Screen_Object(int id, int width, int height, String title){
         this.id = id;
         this.height = height;
         this.width = width;
-        this.map = map;
+        this.title = title;
     }
 
-    public void setParam(Params param, Object value)
-    {
+    @Override
+    public Buildable_Objects getInstance() {
+        return new Anim_Sprite();
+    }
+
+    public void setParam(Params param, Object value){
         if (value == null) return;
         switch (param)
         {
             case id: setId(Integer.valueOf((String)value)); break;
             case height: setHeight(Integer.valueOf((String)value)); break;
             case width: setWidth(Integer.valueOf((String)value)); break;
-            case map: setMap((String)value); break;
+            case title: setTitle((String)value); break;
         }
     }
 
-    public Object getParam(Params param)
-    {
+    public Object getParam(Params param) {
         switch (param)
         {
             case id: return getId();
             case height: return getHeight();
             case width: return getWidth();
-            case map: return getMap();
+            case title: return getTitle();
         }
         return null;
     }
@@ -61,35 +57,20 @@ public class Level extends Buildable_Objects {
             case id: return true;
             case height: return true;
             case width: return true;
-            case map: return true;
+            case title: return true;
             default: return false;
         }
     }
 
-    protected String serializeField(Params param)
-    {
-        return serializeField(param, 0);
-    }
-    protected String serializeField(Params param, int ierarh)
-    {
-        String space = "";
-        for (int i = 0; i < ierarh; i++) space += "\t";
-        switch (param)
-        {
-
-        }
-        return null;
-    }
-    public boolean isSimpleField(Params param)
-    {
+    public boolean isSimpleField(Params param) {
         switch (param)
         {
             case id: return true;
             case height: return true;
             case width: return true;
-            case map: return true;
+            case title: return true;
+            default: return true;
         }
-        return true;
     }
 
     public int getId() { return id; }
@@ -98,21 +79,24 @@ public class Level extends Buildable_Objects {
     public void setHeight(int height) { this.height = height; }
     public int getWidth() { return width; }
     public void setWidth(int width) { this.width = width; }
-    public String getMap() { return map; }
-    public void setMap(String map) {
-        map = map.replace("\t", "");
-        map = map.replaceAll(System.getProperty("line.separator"), "");
-        map = map.replace(" ", "");
-        this.map = map;
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
+
+    @Override
+    protected String serializeField(Params param) {
+        return null;
     }
 
-    public String serializeObject()
-    {
+    @Override
+    protected String serializeField(Params param, int ierarh) {
+        return null;
+    }
+
+    public String serializeObject() {
         return serializeObject(1);
     }
 
-    public String serializeObject(int ierarh)
-    {
+    public String serializeObject(int ierarh) {
         String ser = "<" + getClassTag() + ">\n";
         String space = "";
         for (int i = 0; i < ierarh; i++) space += "\t";

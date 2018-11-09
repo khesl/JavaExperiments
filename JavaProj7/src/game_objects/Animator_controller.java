@@ -118,7 +118,7 @@ public class Animator_controller {
                 str += ConsoleColor.ANSI_BLUE +"id_anim: " + anim.getId() + ";" + ConsoleColor.ANSI_RESET +
                     " anim_type: " + ConsoleColor.setColor(anim.getTypeObject().toString(), ConsoleColor.Color.ANSI_GREEN) +
                     " size(spr): " + anim.getSeq_max_val() + "; " +
-                    ConsoleColor.setColor("\t\tback_animation", ConsoleColor.Color.ANSI_RED) + " [" + ConsoleColor.setColor("any]", ConsoleColor.Color.ANSI_RED) + "]";
+                    ConsoleColor.setColor("\t\tback_animation", ConsoleColor.Color.ANSI_RED) + " [" + ConsoleColor.setColor("any", ConsoleColor.Color.ANSI_RED) + "]";
             return str;
         }
     }
@@ -164,7 +164,6 @@ public class Animator_controller {
                 System.out.println("\t" + objects.toString());
                 if (objects.getType_prev() == objects.getTypeObject())
                     temp.remove(objects);
-                /** убрать дублирование при equal */
                 else {
                     // если это не рут то продолжаем
                     if (findNode(objects.getType_prev())) {

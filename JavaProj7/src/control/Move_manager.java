@@ -16,13 +16,15 @@ public class Move_manager {
     private static Move_manager instance = null;
     private boolean keyDebugMode = MyPlayState_Modificate.keyDebugMode;
     private boolean debugMode = MyPlayState_Modificate.debugMode;
-    private Resources_manager resources_manager = new Resources_manager().getInstance();
-    private Objects_manager objects_manager = new Objects_manager().getInstance();
+    private Resources_manager resources_manager;
+    private Objects_manager objects_manager;
 
     public Move_manager(InputMap im_, ActionMap am_){
         if (instance == null)
         { // Экземпляр менеджера был найден
             instance = this; // Задаем ссылку на экземпляр объекта
+            resources_manager = new Resources_manager().getInstance();
+            objects_manager = resources_manager.getObjects_manager();
             initMove_manager(im_, am_);
         }
     }

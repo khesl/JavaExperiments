@@ -10,12 +10,14 @@ public final class Builder_Objects {
     public static Level createLevel(){ return new Level(); }
     public static Anim_Sprite createAnim_Sprite(){ return new Anim_Sprite(); }
     public static Animation_Objects createAnimation_Objects(){ return new Animation_Objects(); }
+    public static Screen_Object createScreen_Object(){ return new Screen_Object(); }
 
     public final static Buildable_Objects createObjects(String name){
         System.out.println("name_create: " + name);
         if (name.equals(Level.getClassTag())) return createLevel();
         if (name.equals(Anim_Sprite.getClassTag())) return createAnim_Sprite();
         if (name.equals(Animation_Objects.getClassTag())) return createAnimation_Objects();
+        if (name.equals(Screen_Object.getClassTag())) return createScreen_Object();
 
         throw new NullPointerException("Need to add new (Buildable_Objects) " + name + " object in 'Builder_Objects'!");
     }

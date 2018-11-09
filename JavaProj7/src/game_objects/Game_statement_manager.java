@@ -10,11 +10,12 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.awt.image.RasterFormatException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Game_statement_manager extends JPanel {
     private MyPlayState_Modificate mpsm = new MyPlayState_Modificate().getInstance();
     private Resources_manager resources_manager = new Resources_manager().getInstance();
-    private Objects_manager objects_manager = new Objects_manager().getInstance();
+    private Objects_manager objects_manager = resources_manager.getObjects_manager();
     private Move_manager move_manager;
     private boolean debugMode = MyPlayState_Modificate.debugMode;
     public  float delta = MyPlayState_Modificate.delta;
@@ -33,8 +34,9 @@ public class Game_statement_manager extends JPanel {
         /* убрать отсюда нахрен + 2, посмотреть откуда и подравлять картинки
          * */
 
-        for (Sprite spr: resources_manager.getSprites()){
-            g2.drawImage(spr.getImage(), (int)spr.getPosition().x, (int)spr.getPosition().y, this);
+        for (List<Sprite> spr_: resources_manager.getScreen_manager().getCurrentScreenMap())
+            for (Sprite spr: spr_){
+                g2.drawImage(spr.getImage(), (int)spr.getPosition().x, (int)spr.getPosition().y, this);
         }
         for (Entity ent : batches){
             if (ent.isInit()){
@@ -52,11 +54,14 @@ public class Game_statement_manager extends JPanel {
             Player player = (Player)getPlayerBanch();
             g2.draw(new Rectangle((int)player.getBounds().x,(int)player.getBounds().y,
                     (int)player.getBounds().width, (int)player.getBounds().height));
-            for (Sprite spr: resources_manager.getSprites()){
-                g2.draw(new Rectangle((int)spr.getPosition().x, (int)spr.getPosition().y,
+            for (List<Sprite> spr_: resources_manager.getScreen_manager().getCurrentScreenMap())
+                for (Sprite spr: spr_){
+                    g2.draw(new Rectangle((int)spr.getPosition().x, (int)spr.getPosition().y,
                         spr.getImage().getWidth(null), spr.getImage().getHeight(null)));
             }
         }
+        g2.setPaint(Color.red);
+        g2.draw(resources_manager.getScreen_manager().getCameraRect());
     }
 
     public class Render extends Thread{
@@ -71,30 +76,43 @@ public class Game_statement_manager extends JPanel {
                     {//MyRectangle mr = batches.get(batches.size() - 1);
                         if (debugMode) System.out.println("Y coord = " + mr.getBounds().y);
                         if (mr.isInit()){
-                            //mr.update();
                             mr.update(delta); // перерасчет координат
-                                /*{
-                                    int i = (int)mr.getEntity().getBounds().x / 16;
-                                    int j = (int)mr.getEntity().getBounds().y / 16;
-                                    int m = (int)(mr.getEntity().getBounds().x + mr.getEntity().getBounds().width) / 16 + 1;
-                                    int n = (int)(mr.getEntity().getBounds().y + mr.getEntity().getBounds().height) / 16 + 1;
-                                    // квадраты полей которые физически могут касаться объекта.
-                                    System.out.println("(" + i + ", " + j + "), (" + m + ", " + n + ")");
-                                    for (int ii = i; ii < m; ii++)
-                                        for (int jj = j; jj < n; jj++){
-                                            //mr.getEntity().addCollides(sprites2[ii][jj]);
-                                            //System.out.println("collides 0.5 true - (" + ii + ", " + jj + ") - " + sprites2[ii][jj].getPosition().x + " " + sprites2[ii][jj].getPosition().y);
-                                            if (sprites2_2.get(ii).get(jj).collides(mr.getEntity().getBounds()))
-                                                mr.getEntity().addCollides(sprites2_2.get(ii).get(jj));
-                                            System.out.println("collides 0.5 true - (" + ii + ", " + jj + ") - " + sprites2_2.get(ii).get(jj).getPosition().x + " " + sprites2_2.get(ii).get(jj).getPosition().y);
+                            /** тут происходит перерасчёт того что может или не может сделать объект, касается кого или нет
+                                делать ли сначала проверку по элементам территории, или объектов? это потом пересмотреть.
 
-                                        } // взаимо заменяемые?? или я просчитываю геометрически, или он сам определяет что задето.
-                                        // - я понял, это для оптимизации, проверять только те что вокруг, а не все.
-                                }*/
+                                пока что карта реализована на тайлах, инфу о которых мы имеем, и можем решить проходим мы через них или нет.
+
+                             */
+                            {
+                                /**
+                                 * а вот тут я уже хочу реализовать screen. который будет знать общий масштаб карты, текущее разрешение,
+                                 * а также возвращать спрайты необходимые к рендеру в текущий момент. Так что чтобы можно было
+                                 * ему передать объект на экране для простого получения списка overlaps тайлов и их обработкой.
+                                 * */
+                                int i = (int)mr.getBounds().x / 16;
+                                int j = (int)mr.getBounds().y / 16;
+                                int m = (int)(mr.getBounds().x + mr.getBounds().width) / 16 + 1;
+                                int n = (int)(mr.getBounds().y + mr.getBounds().height) / 16 + 1;
+                                // квадраты полей которые физически могут касаться объекта.
+                                //System.out.println("(" + i + ", " + j + "), (" + m + ", " + n + ")");
+                                /*for (int ii = i; ii < m; ii++)
+                                    for (int jj = j; jj < n; jj++){
+                                        resources_manager.getSprites().get(resources_manager.getCount_w()*10+5)
+                                        //mr.getEntity().addCollides(sprites2[ii][jj]);
+                                        //System.out.println("collides 0.5 true - (" + ii + ", " + jj + ") - " + sprites2[ii][jj].getPosition().x + " " + sprites2[ii][jj].getPosition().y);
+                                        if (sprites2_2.get(ii).get(jj).collides(mr.getEntity().getBounds()))
+                                            mr.getEntity().addCollides(sprites2_2.get(ii).get(jj));
+                                        System.out.println("collides 0.5 true - (" + ii + ", " + jj + ") - " + sprites2_2.get(ii).get(jj).getPosition().x + " " + sprites2_2.get(ii).get(jj).getPosition().y);
+
+                                    } // взаимо заменяемые?? или я просчитываю геометрически, или он сам определяет что задето.
+                                    // - я понял, это для оптимизации, проверять только те что вокруг, а не все.
+                                 */
+                            }
                             if (debugMode) System.out.println("new after Update coords " + mr.getBounds().x + " " + mr.getBounds().y);
-                            for (Sprite spr : resources_manager.getSprites()){
-                                if (!spr.getTypeObject().isMoveThrough()) // если обьекты проходимы
-                                {}
+                            for (List<Sprite> spr_: resources_manager.getMain_level().getSprites())
+                                for (Sprite spr: spr_){
+                                    if (!spr.getTypeObject().isMoveThrough()) // если обьекты проходимы
+                                        {}
                                         /*if (spr.collides(mr.getBounds())){
                                             mr.addCollides(spr);
                                             if (debugMode) System.out.println("collides true - " + spr.getX() + " " + spr.getY());
