@@ -29,7 +29,7 @@ public class Timer {
 	static private final int CANCELLED = -1;
 	static private final int FOREVER = -2;
 
-	/** Timer instance for general application wide usage. Static methods on {@link Timer} make convenient use of this instance. */
+	/** MyTimer instance for general application wide usage. Static methods on {@link Timer} make convenient use of this instance. */
 	static Timer instance = new Timer();
 
 	static public Timer instance () {
@@ -269,7 +269,7 @@ public class Timer {
 				}
 			}
 			files = Gdx.files;
-			Thread t = new Thread(this, "Timer");
+			Thread t = new Thread(this, "MyTimer");
 			t.setDaemon(true);
 			t.start();
 			thread = this;

@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="antlr-2.7.7">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SkillBox_Junior/module_11/res/Hibernate/lib/antlr-2.7.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SkillBox_Junior/module_11/res/Hibernate/lib/dom4j-1.6.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SkillBox_Junior/module_11/res/Hibernate/lib/geronimo-jta_1.1_spec-1.1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SkillBox_Junior/module_11/res/Hibernate/lib/hibernate-commons-annotations-5.0.0.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SkillBox_Junior/module_11/res/Hibernate/lib/hibernate-core-5.0.2.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SkillBox_Junior/module_11/res/Hibernate/lib/hibernate-jpa-2.1-api-1.0.0.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SkillBox_Junior/module_11/res/Hibernate/lib/jandex-1.2.2.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SkillBox_Junior/module_11/res/Hibernate/lib/javassist-3.18.1-GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SkillBox_Junior/module_11/res/Hibernate/lib/jboss-logging-3.3.0.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/SkillBox_Junior/module_11/res/Hibernate/lib/mysql-connector-java-8.0.13.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

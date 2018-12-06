@@ -70,9 +70,9 @@ public class Main implements Comparable{
         }*/
         
      /*
-        Main main = new Main();
+        DiplomaProj main = new DiplomaProj();
         main.x = 4;
-        Main main2 = new Main();
+        DiplomaProj main2 = new DiplomaProj();
         main2.x = 13 >> 1;
 
         

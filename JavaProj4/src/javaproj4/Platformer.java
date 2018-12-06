@@ -13,7 +13,7 @@ import src.states.GameStateManager;
 import src.states.MenuState;
 
 /**
- * Main class initialization all game components and listen game event.
+ * DiplomaProj class initialization all game components and listen game event.
  * Send game events to other components.
  */
 public class Platformer extends ApplicationAdapter {

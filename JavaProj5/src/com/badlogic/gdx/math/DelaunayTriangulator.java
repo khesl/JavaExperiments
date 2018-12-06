@@ -182,7 +182,7 @@ public class DelaunayTriangulator {
 				}
 				if (skip) continue;
 
-				// Form new triangles for the current point. Edges are arranged in clockwise order.
+				// module_8.src.Example.ActionListener_3.src.Form new triangles for the current point. Edges are arranged in clockwise order.
 				triangles.add(p1);
 				triangles.add(edgesArray[i + 1]);
 				triangles.add(pointIndex);

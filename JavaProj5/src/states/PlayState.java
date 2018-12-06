@@ -22,7 +22,7 @@ import java.util.Set;
 import static com.badlogic.gdx.Input.*;
 
 /**
- * Main game logic
+ * DiplomaProj game logic
  */
 public class PlayState extends AbstractState {
     private final Texture backgroundImg;
