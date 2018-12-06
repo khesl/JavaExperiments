@@ -104,7 +104,7 @@ public class FirstForm extends JFrame implements Runnable{
                 }
             });
         
-        jLabel1.setText("значения с Main");
+        jLabel1.setText("значения с DiplomaProj");
         jLabel1.setBounds(new Rectangle(15, 15, 95, 15));
         jLabel2.setBounds(new Rectangle(145, 15, 34, 14));
         jLabel3.setText("значения с формы");

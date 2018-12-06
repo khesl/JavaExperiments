@@ -16,10 +16,10 @@ import java.util.List;
 
 
 /**
- * Main UI frame that demonstrates UI coordination with background threads.
+ * DiplomaProj UI frame that demonstrates UI coordination with background threads.
  *
  * @author Eugene Matyushkin aka Skipy
- * @version $Id: Main.java 424 2010-08-17 16:06:48Z skipy_ru $
+ * @version $Id: DiplomaProj.java 424 2010-08-17 16:06:48Z skipy_ru $
  * @since 07.07.2010
  */
 public class Main extends JFrame {

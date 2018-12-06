@@ -27,7 +27,7 @@ import javax.imageio.ImageIO;
 import static com.mylogic.Input.*;
 
 /**
- * Main game logic
+ * DiplomaProj game logic
  */
 public class PlayState extends AbstractState {
     private static BufferedImage backgroundImg;

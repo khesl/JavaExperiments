@@ -63,14 +63,14 @@ public class DragScrollListener extends DragListener {
 				scrollDown.cancel();
 				if (!scrollUp.isScheduled()) {
 					startTime = System.currentTimeMillis();
-					Timer.schedule(scrollUp, tickSecs, tickSecs);
+					MyTimer.schedule(scrollUp, tickSecs, tickSecs);
 				}
 				return;
 			} else if (y < 0) {
 				scrollUp.cancel();
 				if (!scrollDown.isScheduled()) {
 					startTime = System.currentTimeMillis();
-					Timer.schedule(scrollDown, tickSecs, tickSecs);
+					MyTimer.schedule(scrollDown, tickSecs, tickSecs);
 				}
 				return;
 			}

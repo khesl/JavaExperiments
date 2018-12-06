@@ -51,7 +51,7 @@ public class MainFrame extends JFrame {
                 }
             });
         
-        jLabel1.setText("значения с Main");
+        jLabel1.setText("значения с DiplomaProj");
         jLabel1.setBounds(new Rectangle(15, 15, 95, 15));
         //jLabel2.setText("jLabel2");
         jLabel2.setBounds(new Rectangle(145, 15, 34, 14));

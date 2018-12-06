@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import javaproj4.Platformer;
 
 /**
- * Main menu game state
+ * DiplomaProj menu game state
  */
 public class MenuState extends AbstractState {
     private Texture backgroundImg;

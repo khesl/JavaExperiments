@@ -17,7 +17,7 @@ import javaproj4.Platformer;
 import javax.imageio.ImageIO;
 
 /**
- * Main menu game state
+ * DiplomaProj menu game state
  */
 public class MenuState extends AbstractState {
     private BufferedImage backgroundImg;

@@ -20,7 +20,7 @@ public class ServiceThread {
         }
         
 
-        System.out.println("Main end.");
+        System.out.println("DiplomaProj end.");
     }
     
     

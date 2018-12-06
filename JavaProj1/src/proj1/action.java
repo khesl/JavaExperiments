@@ -100,7 +100,7 @@ public class action {
             command = in.nextLine();
             boolean exit = false;
             if (command.equalsIgnoreCase("InitMainForm")){ 
-                System.out.println("Not realized Form system.");
+                System.out.println("Not realized module_8.src.Example.ActionListener_3.src.Form system.");
                 /*MainFrame frame = new MainFrame(this);  
                 try {
                     frame.jbInit();
